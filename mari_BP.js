@@ -6,8 +6,8 @@
 // @author       Mohamed Ubaid
 // @match        https://campaigns.rtbhouse.biz/*
 // @icon         https://www.google.com/s2/favicons?domain=rtbhouse.com
-// @updateURL    https://drive.google.com/file/d/1DR3vn4RoyxIrmgeyg5xH-fXsi2z-itL6/view
-// @downloadURL  https://drive.google.com/file/d/1DR3vn4RoyxIrmgeyg5xH-fXsi2z-itL6/view
+// @updateURL    https://raw.githubusercontent.com/mariporto13/work/main/mari_BP.js
+// @downloadURL  https://raw.githubusercontent.com/mariporto13/work/main/mari_BP.js
 // @exclude      https://campaigns.rtbhouse.biz/tagging/*
 // @exclude      https://campaigns.rtbhouse.biz/#/users*
 // @run-at       document-end

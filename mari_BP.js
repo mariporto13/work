@@ -21,7 +21,7 @@ unsafeWindow.GM_listValues = GM_listValues;
 unsafeWindow.GM_getValue = GM_getValue;
 let ttLinks = GM_getValue("ttLinks");
 let reportLinks = GM_getValue("reportLinks");
-let dcpcLinks = GM_getValue("dcpcLinks");
+let automationLinks = GM_getValue("automationLinks");
 
 if (!ttLinks) {
     ttLinks = `[
@@ -47,20 +47,22 @@ if (!reportLinks) {
 ]`;
 }
 
-if (!dcpcLinks) {
-    dcpcLinks = `[
-    ['Editor', '/params/form'],
-    ['Audit Log','/history']
+if (!automationLinks) {
+    automationLinks = `[
+    ['dCPC - Editor', '/jobs/136/params/form'],
+    ['dCPC - Audit Log','/jobs/136/history'],
+    ['Pacer - Editor','/jobs/153/params/form'],
+    ['Pacer - Audit Log','/jobs/153/history']
     ]`;
 }
 
 setUserPref('ttLinks', ttLinks, "Set Tech Tools links", "Enter all links as an 2D-Array ([ ['Link Title','/relative-link/'] ])");
 setUserPref('reportLinks', reportLinks, "Set Reports links", "Enter all links as an 2D-Array ([ ['Link Title','/relative-link/'] ])");
-setUserPref('dcpcLinks', dcpcLinks, "Set dCPC links", "Enter all links as an 2D-Array ([ ['Link Title','/relative-link/'] ])");
+setUserPref('automationLinks', automationLinks, "Set Automation links", "Enter all links as an 2D-Array ([ ['Link Title','/relative-link/'] ])");
 
 ttLinks = JSON.parse(ttLinks.replace(/'/g, '"'));
 reportLinks = JSON.parse(reportLinks.replace(/'/g, '"'));
-dcpcLinks = JSON.parse(dcpcLinks.replace(/'/g, '"'));
+automationLinks = JSON.parse(automationLinks.replace(/'/g, '"'));
 
 function setUserPref(varName, defaultVal, menuText, promtText) {
     GM_registerMenuCommand(menuText, () => {
@@ -234,7 +236,7 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
 
             addNewMenu(parentFn, childFn, navigationMenuSelector, navigationMenuSelectorPosition, bindOnClick, "techtools", "Tech Tools", `https://techtools.rtbhouse.biz/tools/#/advertisers/${advertiserId}`, ttLinks, advertiserId);
             addNewMenu(parentFn, childFn, navigationMenuSelector, navigationMenuSelectorPosition, bindOnClick, "reports", "Reports", `https://reports.rtbhouse.biz/#/advertisers/${advertiserId}`, reportLinks, advertiserId);
-            addNewMenu(parentFn, childFn, navigationMenuSelector, navigationMenuSelectorPosition, bindOnClick, "dcpc", "dCPC", `https://automation.rtbhouse.biz/advertisers/${advertiserId}/jobs/136`, dcpcLinks, advertiserId);
+            addNewMenu(parentFn, childFn, navigationMenuSelector, navigationMenuSelectorPosition, bindOnClick, "automation", "Automation", `https://automation.rtbhouse.biz/advertisers/${advertiserId}`, automationLinks, advertiserId);
         }
         else {
             //console.log(`original menu not found, assuming custom menu already exists`);

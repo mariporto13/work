@@ -2,7 +2,7 @@
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
 // @version      1.01.mari
-// @description  Add's a Subcampaign, Tech Tools, Reports Menu in the Blue Panel
+// @description  Adds a Subcampaign, Tech Tools, Reports Menu in the Blue Panel
 // @author       Mohamed Ubaid
 // @match        https://campaigns.rtbhouse.biz/*
 // @icon         https://www.google.com/s2/favicons?domain=rtbhouse.com
@@ -201,7 +201,7 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
             bindOnClick = false;
         }
 
-        const scParent = parentFn("Subcampaigns", `https://campaigns.rtbhouse.biz/#/advertisers/${advertiserId}/subcampaigns`, uniqueSelector, '');
+        const scParent = parentFn("Subcampaigns", `https://campaigns.rtbhouse.biz/advertisers/${advertiserId}/subcampaigns`, uniqueSelector, '');
 
         if (!(document.querySelector(selector) == null || document.querySelectorAll("#subcampaigns").length == 0)) {
             window.setTimeout(() => {
@@ -226,11 +226,11 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
             let orange = "#f2711c";
 
             activeSC.forEach(({ name, id }) => {
-                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/#/advertisers/${advertiserId}/subcampaigns/${id}`, green, '');
+                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/advertisers/${advertiserId}/subcampaigns/${id}`, green, '');
                 document.querySelectorAll(`.${uniqueSelector}`)[0].append(linkHtml);
             });
             pausedSC.forEach(({ name, id }) => {
-                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/#/advertisers/${advertiserId}/subcampaigns/${id}`, orange, '');
+                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/advertisers/${advertiserId}/subcampaigns/${id}`, orange, '');
                 document.querySelectorAll(`.${uniqueSelector}`)[0].append(linkHtml);
             });
 
@@ -279,7 +279,7 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
 
     function resetNav(advertiserId) {
         if (!urlWithHash()) {
-            var html = `<a href="https://campaigns.rtbhouse.biz/#/advertisers/${advertiserId}/subcampaigns" class="item"><span><span>Subcampaigns</span></span></a>`;
+            var html = `<a href="https://campaigns.rtbhouse.biz/advertisers/${advertiserId}/subcampaigns" class="item"><span><span>Subcampaigns</span></span></a>`;
             if (document.querySelector(`#subcampaigns`)) {
                 document.querySelector(`#subcampaigns`).replaceWith(generateElements(html)[0]);
             }

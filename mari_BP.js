@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      1.01.mari
+// @version      1.02.mari
 // @description  Adds a Subcampaign, Tech Tools, Reports Menu in the Blue Panel
 // @author       Mohamed Ubaid
 // @match        https://campaigns.rtbhouse.biz/*
@@ -287,21 +287,21 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
 
         if (window.onurlchange === null) {
             window.addEventListener('urlchange', async () => {
-            //console.log(`url changed from ${oldUrl} to ${document.location.href}`);
-            if (oldUrl != document.location.href) {
-                oldUrl = document.location.href;
-                let newAdvertiserId = getAdvertiserId();
-                //console.log(`old id ${advertiserId} and new id ${newAdvertiserId}`);
-                if (newAdvertiserId != advertiserId) {
-                    await getApiData();
+                //console.log(`url changed from ${oldUrl} to ${document.location.href}`);
+                if (oldUrl != document.location.href) {
+                    oldUrl = document.location.href;
+                    let newAdvertiserId = getAdvertiserId();
+                    //console.log(`old id ${advertiserId} and new id ${newAdvertiserId}`);
+                    if (newAdvertiserId != advertiserId) {
+                        await getApiData();
+                    }
                 }
-            }
             });
         }
 
         window.setInterval(async function () {
             if (document.querySelectorAll("#subcampaigns").length == 0) {
-            await getApiData();
+                await getApiData();
             }
         }, 2000);
     }

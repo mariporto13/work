@@ -1,15 +1,17 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      1.02.mari
-// @description  Adds a Subcampaign, Tech Tools, Reports Menu in the Blue Panel
+// @version      1.03.mari
+// @description  Adds Subcampaign, Tech Tools and Reports Menus in the Blue Panel
 // @author       Mohamed Ubaid
 // @match        https://campaigns.rtbhouse.biz/*
 // @icon         https://www.google.com/s2/favicons?domain=rtbhouse.com
 // @updateURL    https://raw.githubusercontent.com/mariporto13/work/main/mari_BP.js
 // @downloadURL  https://raw.githubusercontent.com/mariporto13/work/main/mari_BP.js
 // @exclude      https://campaigns.rtbhouse.biz/tagging/*
-// @exclude      https://campaigns.rtbhouse.biz/#/users*
+// @exclude      https://campaigns.rtbhouse.biz/users*
+// @exclude      https://campaigns.rtbhouse.biz/start*
+// @exclude      https://campaigns.rtbhouse.biz/#/activity*
 // @run-at       document-end
 // @grant GM_getValue
 // @grant GM_setValue

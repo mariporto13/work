@@ -228,11 +228,11 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
             let orange = "#f2711c";
 
             activeSC.forEach(({ name, id }) => {
-                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/advertisers/${advertiserId}/subcampaigns/${id}/settings/bidding-parameters`, green, '');
+                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/#/advertisers/${advertiserId}/subcampaigns/${id}/settings/bidding-parameters`, green, '');
                 document.querySelectorAll(`.${uniqueSelector}`)[0].append(linkHtml);
             });
             pausedSC.forEach(({ name, id }) => {
-                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/advertisers/${advertiserId}/subcampaigns/${id}/settings/bidding-parameters`, orange, '');
+                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/#/advertisers/${advertiserId}/subcampaigns/${id}/settings/bidding-parameters`, orange, '');
                 document.querySelectorAll(`.${uniqueSelector}`)[0].append(linkHtml);
             });
 

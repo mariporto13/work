@@ -28,13 +28,16 @@ let automationLinks = GM_getValue("automationLinks");
 if (!ttLinks) {
     ttLinks = `[
 ['Swappables Manager', '/swappables-manager'],
+['Static banners creator', '/creatives-creator'],
 ['Creatives recycler', '/creatives-recycler'],
 ['Clients stats', '/client-stats/overview'],
 ['Clients stats - update', '/client-stats-manual-update'],
 ['Access logs preview', '/access-logs-preview/requests'],
 ['Incoming tags config', '/tags-mapping'],
 ['David vs Goliath', '/david-vs-goliath'],
-['Order forms', '/order-forms']
+['Order forms', '/order-forms'],
+['Traffic forms', '/traffic-forms'],
+['In-app click tester', '/click-tester']
 ]`;
 }
 

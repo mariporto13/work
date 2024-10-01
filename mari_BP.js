@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      1.06.mari
+// @version      1.06.1.mari
 // @description  Adds Subcampaign, Tech Tools and Reports Menus in the Blue Panel
 // @author       Mohamed Ubaid
 // @match        https://campaigns.rtbhouse.biz/*
@@ -24,6 +24,7 @@ unsafeWindow.GM_getValue = GM_getValue;
 let ttLinks = GM_getValue("ttLinks");
 let reportLinks = GM_getValue("reportLinks");
 let automationLinks = GM_getValue("automationLinks");
+let externalLinks = GM_getValue("externalLinks");
 
 if (!ttLinks) {
     ttLinks = `[

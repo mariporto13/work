@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      1.05.mari
+// @version      1.06.mari
 // @description  Adds Subcampaign, Tech Tools and Reports Menus in the Blue Panel
 // @author       Mohamed Ubaid
 // @match        https://campaigns.rtbhouse.biz/*
@@ -61,13 +61,22 @@ if (!automationLinks) {
     ]`;
 }
 
+if (!externalLinks) {
+    externalLinks = `[
+['Hourly Stats Dashboard', 'bf621f67-b452-4a91-9979-136714ec5798'],
+['CTR analysis - red and orange flags', 'f7a9c6b8-8426-42e7-8a03-f6186124775d']
+]`;
+}
+
 setUserPref('ttLinks', ttLinks, "Set Tech Tools links", "Enter all links as an 2D-Array ([ ['Link Title','/relative-link/'] ])");
 setUserPref('reportLinks', reportLinks, "Set Reports links", "Enter all links as an 2D-Array ([ ['Link Title','/relative-link/'] ])");
 setUserPref('automationLinks', automationLinks, "Set Automation links", "Enter all links as an 2D-Array ([ ['Link Title','/relative-link/'] ])");
+setUserPref('externalLinks', externalLinks, "Set External links", "Enter all links as an 2D-Array ([ ['Link Title','/relative-link/'] ])");
 
 ttLinks = JSON.parse(ttLinks.replace(/'/g, '"'));
 reportLinks = JSON.parse(reportLinks.replace(/'/g, '"'));
 automationLinks = JSON.parse(automationLinks.replace(/'/g, '"'));
+externalLinks = JSON.parse(externalLinks.replace(/'/g, '"'));
 
 function setUserPref(varName, defaultVal, menuText, promtText) {
     GM_registerMenuCommand(menuText, () => {
@@ -242,6 +251,7 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
             addNewMenu(parentFn, childFn, navigationMenuSelector, navigationMenuSelectorPosition, bindOnClick, "techtools", "Tech Tools", `https://techtools.rtbhouse.biz/tools/#/advertisers/${advertiserId}`, ttLinks, advertiserId);
             addNewMenu(parentFn, childFn, navigationMenuSelector, navigationMenuSelectorPosition, bindOnClick, "reports", "Reports", `https://reports.rtbhouse.biz/#/advertisers/${advertiserId}`, reportLinks, advertiserId);
             addNewMenu(parentFn, childFn, navigationMenuSelector, navigationMenuSelectorPosition, bindOnClick, "automation", "Automation", `https://automation.rtbhouse.biz/advertisers/${advertiserId}`, automationLinks, advertiserId);
+	    addNewMenu(parentFn, childFn, navigationMenuSelector, navigationMenuSelectorPosition, bindOnClick, "external", "External", `https://lookerstudio.google.com/u/0/reporting/`, externalLinks, advertiserId);
         }
         else {
             //console.log(`original menu not found, assuming custom menu already exists`);

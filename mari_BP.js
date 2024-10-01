@@ -18,6 +18,7 @@
 // @grant GM_listValues
 // @grant GM_registerMenuCommand
 // @grant window.onurlchange
+
 // ==/UserScript==
 unsafeWindow.GM_listValues = GM_listValues;
 unsafeWindow.GM_getValue = GM_getValue;

@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      1.07.mari
-// @description  Adds Subcampaign, Tech Tools and Reports Menus in the Blue Panel
-// @author       Mohamed Ubaid
+// @version      1.08.mari
+// @description  Adds Automation, Subcampaign, Tech Tools, External Links and Reports Menus in the Blue Panel
+// @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
 // @icon         https://www.google.com/s2/favicons?domain=rtbhouse.com
 // @updateURL    https://raw.githubusercontent.com/mariporto13/work/main/mari_BP.js
@@ -242,11 +242,11 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
             let orange = "#f2711c";
 
             activeSC.forEach(({ name, id }) => {
-                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/#/advertisers/${advertiserId}/subcampaigns/${id}/settings/bidding-parameters`, green, '');
+                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/advertisers/${advertiserId}/subcampaigns/${id}/settings/bidding-parameters`, green, '');
                 document.querySelectorAll(`.${uniqueSelector}`)[0].append(linkHtml);
             });
             pausedSC.forEach(({ name, id }) => {
-                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/#/advertisers/${advertiserId}/subcampaigns/${id}/settings/bidding-parameters`, orange, '');
+                const linkHtml = childFn(name, `https://campaigns.rtbhouse.biz/advertisers/${advertiserId}/subcampaigns/${id}/settings/bidding-parameters`, orange, '');
                 document.querySelectorAll(`.${uniqueSelector}`)[0].append(linkHtml);
             });
 

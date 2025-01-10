@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      2.05.mari
+// @version      2.06.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -163,11 +163,11 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
     }
 
     const generateParentLinkNew = (title, url, specialClass, target = '_blank') => {
-        const parent = `<div role="listbox" aria-expanded="false" class="ui item dropdown" tabindex="0" id="${specialClass}">
+        const parent = `<div class="menu-item" aria-expanded="false" class="ui item dropdown" tabindex="0" id="${specialClass}">
                         <a class="item" target="${target}" href="${url}" style="padding: 0 0 0 0;margin: 0 0 -4px;"><span><span>${title}</span></span></a>
                         <i aria-hidden="true" class="dropdown icon"></i>
-                        <div class="menu transition ${specialClass}">
-                        </div></div>`;
+                        <menu class="menu-vertical menu-expandable-list ${specialClass}">
+                        </menu></div>`;
         return generateElements(parent)[0];
     }
 
@@ -194,7 +194,7 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
             addSCLink(apiData);
         }
     };
-//test123
+
     const addSCLink = (apiData) => {
         if (!apiData) return;
 

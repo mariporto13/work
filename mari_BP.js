@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      2.11.mari
+// @version      2.12.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -155,7 +155,6 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
 	<span class="k-link"><a target="${target}" class="k-link" style="color:#395c75" href="${url}">${title}</a><span class="k-icon  k-i-arrow-60-down"></span></span>
         <div class="k-animation-container" style="width: 204px; height: 358px; overflow: hidden; display: none; position: absolute; z-index: 10002; top: 36.0048px; left: 0px; box-sizing: content-box;">
             <ul class="k-group k-menu-group k-popup k-reset ${specialClass}" style="display: none; max-height: 971.014px; overflow: auto; position: absolute; font-size: 14px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-stretch: 100%; font-style: normal; font-weight: 500; line-height: normal;" role="menu" data-role="popup" aria-hidden="true">
-
             </ul>
         </div>
     </li>`;
@@ -166,8 +165,8 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
         const parent = `<div role="listbox" aria-expanded="false" class="ui item dropdown" tabindex="0" id="${specialClass}">
                         <a class="item" target="${target}" href="${url}" style="padding: 0 0 0 0;margin: 0 0 -4px;"><span><span>${title}</span></span></a>
                         <i aria-hidden="true" class="dropdown icon"></i>
-                        <menu class="menu-vertical menu-expandable-list ${specialClass}">
-                        </menu></div>`;
+                        <div class="menu transition ${specialClass}">
+                        </div></div>`;
         return generateElements(parent)[0];
     }
 

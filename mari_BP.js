@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      2.04.mari
+// @version      2.05.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -194,7 +194,7 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
             addSCLink(apiData);
         }
     };
-
+//test123
     const addSCLink = (apiData) => {
         if (!apiData) return;
 

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      2.12.mari
+// @version      2.13.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -146,15 +146,15 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
     }
 
     const generateChildLink = (title, url, backgroundcolor, target = '_blank') => {
-        const child = `<li class="k-item k-state-default" role="menuitem"><a class="k-link" target="${target}" style="color:${backgroundcolor}!important" href="${url}">${title}</a></li>`;
+        const child = `<menu class="sc-DvaoS jBhSsU menu sc-eXvyUU dmcUeP menu-vertical sc-bOdUTf cXWzxY menu-expandable-list"><a class="sc-klYcpz OxldX menu-item" target="${target}" style="color:${backgroundcolor}!important" href="${url}">${title}</a></menu>`;
         return generateElements(child)[0];
     }
 
     const generateParentLink = (title, url, specialClass, target = '_blank') => {
-        const parent = `<li id="${specialClass}" class="k-item k-state-default" role="menuitem" aria-haspopup="true" style="z-index: auto;">
+        const parent = `<li class="${specialClass} menu-item" aria-haspopup="true" style="z-index: auto;">
 	<span class="k-link"><a target="${target}" class="k-link" style="color:#395c75" href="${url}">${title}</a><span class="k-icon  k-i-arrow-60-down"></span></span>
-        <div class="k-animation-container" style="width: 204px; height: 358px; overflow: hidden; display: none; position: absolute; z-index: 10002; top: 36.0048px; left: 0px; box-sizing: content-box;">
-            <ul class="k-group k-menu-group k-popup k-reset ${specialClass}" style="display: none; max-height: 971.014px; overflow: auto; position: absolute; font-size: 14px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-stretch: 100%; font-style: normal; font-weight: 500; line-height: normal;" role="menu" data-role="popup" aria-hidden="true">
+        <div class="k-animation-container" style="width: 150px; height: 200px; overflow: hidden; display: none; position: absolute; z-index: 999; top: 36.0048px; left: 0px; box-sizing: inherit;">
+            <ul class="k-group k-menu-group k-popup k-reset ${specialClass}" style="line-height: 14px; text-align: center; display: none; max-height: 971.014px; overflow: auto; position: absolute; font-size: 14px; font-family: Lato,&quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-stretch: 100%; font-style: normal; font-weight: 500; line-height: normal;" role="menu" data-role="popup" aria-hidden="true">
             </ul>
         </div>
     </li>`;
@@ -163,8 +163,8 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
 
     const generateParentLinkNew = (title, url, specialClass, target = '_blank') => {
         const parent = `<div role="listbox" aria-expanded="false" class="ui item dropdown" tabindex="0" id="${specialClass}">
-                        <a class="item" target="${target}" href="${url}" style="padding: 0 0 0 0;margin: 0 0 -4px;"><span><span>${title}</span></span></a>
-                        <i aria-hidden="true" class="dropdown icon"></i>
+                        <a class="item" target="${target}" href="${url}" style="color: #0e3857; box-sizing: inherit; line-height: 39px; text-align: center; padding: 0 0 0 0; margin: 0 3px 0;"><span><span>${title}</span></span></a>
+                        <i aria-hidden="true" class="dropdown icon" style="padding: 0 18px 0 0; margin: 0 0 0;"></i>
                         <div class="menu transition ${specialClass}">
                         </div></div>`;
         return generateElements(parent)[0];

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      2.00.mari
+// @version      2.01.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -93,9 +93,9 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
 
 (async () => {
 
-    /**const urlWithHash = () => {
+    const urlWithHash = () => {
         return document.location.href.indexOf("#") > -1;
-    }*/
+    }
 
     const getAdvertiserId = () => {
         return document.location.href.match(/(?<=advertisers\/).*/)[0].split("/")[0];
@@ -128,7 +128,7 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
             showMenu(id);
         }
     }
-    //if (!urlWithHash()) {
+    if (!urlWithHash()) {
         window.addEventListener('mouseup', e => {
             const targets = ['subcampaigns', 'techtools', 'reports'];
             targets.forEach(target => {
@@ -137,7 +137,7 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
                 }
             });
         });
-    //}
+    }
 
     const generateElements = html => {
         const template = document.createElement('template');
@@ -203,16 +203,16 @@ function setUserPref(varName, defaultVal, menuText, promtText) {
         const uniqueSelector = "subcampaigns";
         let parentFn = generateParentLinkNew;
         let childFn = generateChildLinkNew;
-        let selector = ".app-secondary-menu > a:nth-child(3)";
+        let selector = "menu.menu-horizontal.pointing-menu > .menu-item:nth-child(3)";
         let bindOnClick = true;
-        let navigationMenuSelector = '.app-secondary-menu';
+        let navigationMenuSelector = 'menu.menu-horizontal.pointing-menu';
         let navigationMenuSelectorPosition = 0;
 
         if (urlWithHash()) {
             parentFn = generateParentLink;
             childFn = generateChildLink;
-            selector = "#submenu > ul > li:nth-child(3)";
-            navigationMenuSelector = '.k-menu-horizontal';
+            selector = ".menu-item:nth-child(3)m";
+            navigationMenuSelector = 'menu.menu-horizontal.pointing-menu"';
             navigationMenuSelectorPosition = 2;
             bindOnClick = false;
         }

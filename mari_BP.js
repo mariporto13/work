@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      2.08.mari
+// @version      2.09.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -18,7 +18,7 @@
 // @grant GM_listValues
 // @grant GM_registerMenuCommand
 // @grant window.onurlchange
-//test123
+
 // ==/UserScript==
 unsafeWindow.GM_listValues = GM_listValues;
 unsafeWindow.GM_getValue = GM_getValue;

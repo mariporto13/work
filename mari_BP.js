@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      3.00.mari
+// @version      3.01.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links, Automation, and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -67,10 +67,10 @@ if (!reportLinks) {
 
 if (!automationLinks) {
     automationLinks = `[
-    ['dCPC - Editor', '/jobs/136/params/form'],
-    ['dCPC - Audit Log','/jobs/136/history'],
-    ['Pacer - Editor','/jobs/153/params/form'],
-    ['Pacer - Audit Log','/jobs/153/history']
+    ['dCPC - Editor', '/136/params/form'],
+    ['dCPC - Audit Log','/136/history'],
+    ['Pacer - Editor','/153/params/form'],
+    ['Pacer - Audit Log','/153/history']
     ]`;
 }
 

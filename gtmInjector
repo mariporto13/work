@@ -1,11 +1,14 @@
 // ==UserScript==
 // @name GTM Injector
 // @namespace https://www.oi.com.br/internet
-// @version 0.1.5
+// @version 0.1.6
 // @author Mariana Porto
 // @description Inject GTM bootstrap on my website
 // @include https://*.oi.com.br/*
-// @include https://*.oi.com.br/*/*
+// @include https://www.oi.com.br/internet/
+// @include https://oinovafibra.oi.com.br/
+// @include https://www.oi.com.br/internet/entretenimento/
+// @include https://www.oi.com.br/internet/gamer/
 // ==/UserScript==
 
 // Google Tag Manager

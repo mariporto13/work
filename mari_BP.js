@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      3.06.mari
+// @version      3.07.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links, Automation, and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -314,7 +314,7 @@ externalLinks = JSON.parse(externalLinks.replace(/'/g, '"'));
 
             const apiData = await getAdvertiserProperties(advertiserId);
             apiData.data = apiData.subcampaigns
-                .flatMap(({ subcampaignId, info, basicInfo, status }) => ({ id: subcampaignId, ...info, ...basicInfo, ...campaignStatus }))
+                .flatMap(({ subcampaignId, info, basicInfo, campaignStatus }) => ({ id: subcampaignId, ...info, ...basicInfo, status: campaignStatus.status.value }))
                 .filter(({ archivedAt }) => archivedAt == null)
                 .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -374,11 +374,11 @@ externalLinks = JSON.parse(externalLinks.replace(/'/g, '"'));
             const newSC = apiData.data.filter(({ status }) => status == 'NEW');
             const activeRateCards = apiData.invoiceRateCards.filter(rateCard =>
                 rateCard.subcampaigns.length > 0 &&
-                rateCard.subcampaigns.some(subcampaign => subcampaign.campaignStatus.status === 'ACTIVE')
+                rateCard.subcampaigns.some(subcampaign => subcampaign.campaignStatus.status.value === 'ACTIVE')
             );
             const inactiveRateCards = apiData.invoiceRateCards.filter(rateCard =>
                 rateCard.subcampaigns.length === 0 ||
-                !rateCard.subcampaigns.some(subcampaign => subcampaign.campaignStatus.status === 'ACTIVE')
+                !rateCard.subcampaigns.some(subcampaign => subcampaign.campaignStatus.status.value === 'ACTIVE')
             );
 
             const green = "#21ba45";

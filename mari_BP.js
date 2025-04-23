@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      3.02.mari
+// @version      3.03.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links, Automation, and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -93,14 +93,6 @@ const getAdvertiserProperties = async (advertiserId) => {
                 invoiceRateCardId
                 info {
                     name
-                }
-                subcampaigns {
-                    subcampaignId
-                    info {
-                        status
-                        name
-                        archivedAt
-                    }
                 }
             }
             subcampaigns {

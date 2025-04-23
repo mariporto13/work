@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      3.01.mari
+// @version      3.02.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links, Automation, and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -82,7 +82,7 @@ if (!externalLinks) {
 }
 
 const getAdvertiserProperties = async (advertiserId) => {
-    const query = `query ($advertiserId: Int!) {
+    const query = `query GetAdvertiser($advertiserId: Int!) {
         advertiser(advertiserId: $advertiserId) {
             advertiserId
             info {
@@ -123,7 +123,7 @@ const getAdvertiserProperties = async (advertiserId) => {
     const request = await fetch("https://campaigns.rtbhouse.biz/api/graphql", {
         "headers": {
             "accept": "*/*",
-            "accept-language": "en-US,en;q=0.9",
+            "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,pl;q=0.6,es;q=0.5",
             "content-type": "application/json"
         },
         "body": JSON.stringify(body),

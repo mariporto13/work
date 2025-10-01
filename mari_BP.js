@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      3.08.mari
+// @version      3.09.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links, Automation, and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -168,9 +168,12 @@ externalLinks = JSON.parse(externalLinks.replace(/'/g, '"'));
     const urlWithHash = () => document.location.href.includes("#");
 
     const getAdvertiserId = () => {
-        if (document.location.href.match(/(?<=advertisers\/).*/) != null)
-            return document.location.href.match(/(?<=advertisers\/).*/)[0].split("/")[0];
-        else return '';
+        if (document.location.href.match(/(?<=advertisers\/).*/) != null) {
+			return document.location.href.match(/(?<=advertisers\/).*/)[0].split("/")[0];
+		}
+        else {
+			return ''
+		};
     };
 
     const showMenu = id => {

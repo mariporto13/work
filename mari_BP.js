@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [mari] Blue Panel - Super Subcampaigns, Tech Tools, Reports Navigation Menu
 // @namespace    https://campaigns.rtbhouse.biz/
-// @version      3.09.mari
+// @version      3.10.mari
 // @description  Adds Automation, Subcampaign, Tech Tools, External Links, Automation, and Reports Menus in the Blue Panel
 // @author       Mariana Porto
 // @match        https://campaigns.rtbhouse.biz/*
@@ -440,7 +440,6 @@ externalLinks = JSON.parse(externalLinks.replace(/'/g, '"'));
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
                 border-radius: var(--menu-expandable-list-border-radius, var(--border-radius));
                 border: solid 1px var(--menu-expandable-list-border-color, var(--border-color));
-                
                 flex-direction: column;
                 flex: 1 1 0%;
             }
@@ -529,16 +528,19 @@ externalLinks = JSON.parse(externalLinks.replace(/'/g, '"'));
     function resetNav(advertiserId) {
         if (!urlWithHash()) {
             var html = `<a href="/#/advertisers/${advertiserId}/subcampaigns" class="item"><span><span>Subcampaigns</span></span></a>`;
-            if (document.querySelector(`#subcampaigns`))
+            if (document.querySelector(`#subcampaigns`)) {
                 document.querySelector(`#subcampaigns`).replaceWith(generateElements(html)[0]);
+			}
 
             var cphtml = `<a href="/#/advertisers/${advertiserId}/creative-packs" class="item"><span><span>Creative packs</span></span></a>`;
-            if (document.querySelector(`#creativepacks`))
+            if (document.querySelector(`#creativepacks`)) {
                 document.querySelector(`#creativepacks`).replaceWith(generateElements(cphtml)[0]);
+			}
 
             var rchtml = `<a href="/#/advertisers/${advertiserId}/rate-cards" class="item"><span><span>Rate cards</span></span></a>`;
-            if (document.querySelector(`#ratecards`))
+            if (document.querySelector(`#ratecards`)) {
                 document.querySelector(`#ratecards`).replaceWith(generateElements(rchtml)[0]);
+			}
 
         }
     }
